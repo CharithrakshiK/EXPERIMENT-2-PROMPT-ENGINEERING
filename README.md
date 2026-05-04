@@ -1,99 +1,82 @@
-# EX-02 – Cross-Platform Prompting: Evaluating Diverse Techniques in AI-Powered Text Summarization
+# EXP-2-PROMPT-ENGINEERING-
+# NAME: Charithrakshi K
+# REG.NO: 212224040053
+## Aim: 
+Comparative Analysis of different types of Prompting patterns and explain with Various Test Scenarios
 
-## Aim
+Experiment: Test and compare how different pattern models respond to various prompts (broad or unstructured) versus basic prompts (clearer and more refined) across multiple scenarios. Analyze the quality, accuracy, and depth of the generated responses.
 
-To evaluate and compare the effectiveness of different prompting strategies (zero-shot, few-shot, chain-of-thought, role-based) across multiple AI platforms (ChatGPT, Gemini, Claude, Copilot) for the task of summarizing text.
+## ALGORITHM 
 
----
+Common Scenario: A user wants to generate creative writing about a "mysterious old book."
 
-## Scenario
+## 1. Zero-Shot Prompting
+### Description:
+This is the simplest form of prompting, where the model is given a prompt without any examples or specific instructions beyond the core request. It relies entirely on the model's pre-trained knowledge to generate a response.
 
-As part of a content curation team for an educational platform, the task was to generate **concise and accessible summaries** of research papers for undergraduate students. A 500-word technical article on *“The Basics of Blockchain Technology”* was chosen as the test input.
+### Test Scenario:
+"Write a short story about a mysterious old book."
 
-The objective was to determine which **platform + prompting technique** combination delivers the most effective summary, based on:
+### Algorithmic Output Aim:
+A creative and coherent short story, potentially incorporating elements of suspense, discovery, or hidden knowledge, based on the model's understanding of "mysterious old book" and "short story."
 
-* **Accuracy**
-* **Coherence**
-* **Simplicity**
-* **Speed**
-* **User Experience (UX)**
+## 2. Few-Shot Prompting
 
----
+### Description: 
+In this pattern, the model is provided with a few examples of input-output pairs before being given the actual prompt. This helps the model understand the desired format, style, or type of response.
 
-## Algorithm
+### Test Scenario: 
+"Example 1:
 
-1. **Platform Selection** – Identify popular AI platforms for summarization: ChatGPT, Gemini, Claude, and Copilot.
-2. **Prompting Strategies** – Define four prompting approaches: Zero-shot, Few-shot, Chain-of-thought, Role-based.
-3. **Dataset Preparation** – Use a 500-word article on blockchain as the test document.
-4. **Execution** – Apply each prompting strategy across all platforms to generate summaries.
-5. **Data Collection** – Record outputs while noting generation speed and usability.
-6. **Evaluation** – Rate summaries on Accuracy, Coherence, Simplicity, Speed, and UX (scale: 1–5).
-7. **Comparison** – Tabulate results and analyze strengths/weaknesses of each combination.
-8. **Conclusion** – Identify the most effective platform–prompting pair.
+Input: "Describe a talking dog."
 
----
+Output: "Barnaby, a scruffy terrier with an uncanny vocabulary, greeted me with a polite 'Good morning, chap!' and a wag of his tail. He then proceeded to explain the merits of chasing squirrels."
 
-## Prompting Techniques
+Now, write a short story about a mysterious old book."
 
-Prompting strategies influence how effectively AI models generate responses. Each technique interacts differently with the underlying model.
+### Algorithmic Output Aim:
+A short story that mimics the descriptive and somewhat whimsical style of the provided examples, focusing on characterization and perhaps anthropomorphizing the book or its effects.
 
-* **Zero-shot prompting** – Provides the task directly, without examples.
-  *Example*: “Summarize the following article in 150 words for undergraduates.”
+## 3. Chain-of-Thought (CoT) Prompting
 
-* **Few-shot prompting** – Supplies a few sample outputs first, guiding the model.
-  *Example*: “Here are two summaries: \[A], \[B]. Now summarize this article.”
+### Description:
+CoT prompting encourages the model to break down complex problems into intermediate steps, showing its reasoning process. This is particularly effective for tasks requiring logical deduction or multi-step problem-solving. While primarily for reasoning tasks, it can guide creative outputs towards a more structured narrative.
 
-* **Chain-of-thought prompting** – Instructs the model to reason step by step before summarizing.
-  *Example*: “Identify the key points → explain briefly → produce a summary.”
+### Test Scenario: 
+"Think step-by-step about how a mysterious old book would reveal its secrets in a short story. First, consider its appearance. Second, imagine the initial interaction. Third, what kind of secret would it hold? Finally, how does the protagonist discover it?
 
-* **Role-based prompting** – Assigns a role or persona to tailor tone and complexity.
-  *Example*: “You are a professor explaining blockchain to beginners. Summarize in 150 words.”
+Now, write a short story about a mysterious old book."
 
----
+### Algorithmic Output Aim: 
+A more structured short story with a clear narrative arc, where the discovery of the book's secrets unfolds logically, following the outlined steps.
 
-## Evaluation Criteria
+## 4. Role-Play Prompting
 
-Summaries were evaluated along five dimensions:
+### Description:
+This pattern assigns a specific persona or role to the AI, instructing it to generate content from that perspective. This can significantly alter the tone, vocabulary, and overall style of the output.
 
-1. **Accuracy** – Coverage of blockchain fundamentals.
-2. **Coherence** – Logical organization and readability.
-3. **Simplicity** – Accessibility for undergraduate students.
-4. **Speed** – Time taken to generate results.
-5. **User Experience (UX)** – Presentation and ease of interpretation.
+### Test Scenario:
+"You are a seasoned antique dealer with a penchant for the arcane. Write a short story about your encounter with a mysterious old book."
 
----
+### Algorithmic Output Aim:
+A short story told from the perspective of an antique dealer, featuring specialized vocabulary (e.g., patina, provenance), a tone that suggests knowledge and perhaps a touch of skepticism, and an emphasis on the physical characteristics and history of the book.
 
-## Results
+## Output
 
-**Table 1 – Comparative Evaluation of Platforms & Prompting Styles**
-
-| Platform | Prompt Style     | Accuracy (5) | Coherence (5) | Simplicity (5) | Speed (5) | UX (5) | Total (25) |
-| -------- | ---------------- | ------------ | ------------- | -------------- | --------- | ------ | ---------- |
-| ChatGPT  | Zero-shot        | 4            | 4             | 4              | 5         | 4      | 21         |
-| ChatGPT  | Few-shot         | 5            | 5             | 4              | 4         | 5      | 23         |
-| Gemini   | Role-based       | 4            | 4             | 5              | 4         | 5      | 22         |
-| Claude   | Chain-of-thought | 5            | 5             | 4              | 3         | 4      | 21         |
-| Copilot  | Zero-shot        | 3            | 3             | 3              | 5         | 3      | 17         |
-
----
-
-## Discussion
-
-The evaluation highlights the following insights:
-
-* **ChatGPT Few-shot** achieved the highest overall score (23/25). Providing structured examples helped it produce **highly accurate and coherent** summaries.
-* **Gemini Role-based** stood out in **simplicity (5/5)**, delivering beginner-friendly outputs ideal for undergraduate audiences.
-* **Claude Chain-of-thought** performed strongly in **accuracy and coherence**, though response speed was slightly slower.
-* **Copilot Zero-shot** was fast but lacked **depth and clarity**, making it less suitable for educational summaries.
-
-These findings confirm that the **prompting strategy is as critical as the platform itself**. While ChatGPT offers the best balance overall, Gemini is more effective for introductory learners, and Claude is useful when deeper reasoning is required.
-
----
-
-## Conclusion
-
-The experiment demonstrates that **ChatGPT with Few-shot prompting** provides the most accurate, coherent, and balanced summaries, making it the strongest option overall. However, **Gemini with Role-based prompting** excels in simplicity, producing highly accessible content for undergraduates. Ultimately, the choice of platform and prompting method should depend on the target audience and task requirements.
-
----
+## Zero-Shot Prompting 
+<img width="500" height="500" alt="Gemini_Generated_Image_myjy4vmyjy4vmyjy1" src="https://github.com/user-attachments/assets/6e8eb670-330a-4cb4-abca-927aff1c12bd" />
 
 
+## Few-Shot Prompting
+<img width="500" height="500" alt="Gemini_Generated_Image_myjy4vmyjy4vmyjy 2" src="https://github.com/user-attachments/assets/5055c115-cdaa-4d9a-8834-f4baf4f47b92" />
+
+## Chain-of-Thought (CoT) Prompting
+<img width="500" height="500" alt="Gemini_Generated_Image_myjy4vmyjy4vmyjy3" src="https://github.com/user-attachments/assets/5f56daca-e1aa-4fd5-8d8b-88378a40784a" />
+
+
+## Role-Play Prompting
+<img width="500" height="500" alt="Gemini_Generated_Image_myjy4vmyjy4vmyjy 4" src="https://github.com/user-attachments/assets/ca929071-1131-46df-9b0e-86a43c633e86" />
+
+## Result
+
+Thus the Comparative Analysis of different types of Prompting patterns and explain with Various Test Scenarios was created successfully.
